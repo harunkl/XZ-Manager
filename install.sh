@@ -400,7 +400,7 @@ ensure_reality_keys(){
 
   if echo "${out}" | grep -q '^PrivateKey:'; then
     priv="$(echo "${out}" | awk -F': ' '/^PrivateKey:/ {print $2; exit}')"
-    pub="$(echo "${out}"  | awk -F': ' '/^Password:/  {print $2; exit}')"
+    pub="$(echo "${out}"  | awk -F': ' '/^Password/  {print $2; exit}')"
   else
     priv="$(echo "${out}" | awk -F': ' '/Private key/ {print $2; exit}')"
     pub="$(echo "${out}"  | awk -F': ' '/Public key/  {print $2; exit}')"
